@@ -1,14 +1,32 @@
 <pre>
-   _____                __         ____         __      
-  / ___/____ ___  __   / /_  ___  / / /___     / /_____ 
-  \__ \/ __ `/ / / /  / __ \/ _ \/ / / __ \   / __/ __ \
- ___/ / /_/ / /_/ /  / / / /  __/ / / /_/ /  / /_/ /_/ /
-/________,_/\__, /____/ /_/\_____/_/\____/   \__/\____/ 
-   / __ )(_))))_)/ __ \____ _/ /_____ _                 
-  / __  / / __ `/ / / / __ `/ __/ __ `/                 
- / /_/ / / /_/ / /_/ / /_/ / /_/ /_/ /                  
-/_____/_/\__, /_____/\__,_/\__/\__,_/                   
-        /____/                                          
+#   _______  _______  __   __                                     
+#  |       ||   _   ||  | |  |                                    
+#  |  _____||  |_|  ||  |_|  |                                    
+#  | |_____ |       ||       |                                    
+#  |_____  ||       ||_     _|                                    
+#   _____| ||   _   |  |   |                                      
+#  |_______||__| |__|  |___|                                      
+#   _     _  _______  ___      _______  _______  __   __  _______ 
+#  | | _ | ||       ||   |    |       ||       ||  |_|  ||       |
+#  | || || ||    ___||   |    |       ||   _   ||       ||    ___|
+#  |       ||   |___ |   |    |       ||  | |  ||       ||   |___ 
+#  |       ||    ___||   |___ |      _||  |_|  ||       ||    ___|
+#  |   _   ||   |___ |       ||     |_ |       || ||_|| ||   |___ 
+#  |__| |__||_______||_______||_______||_______||_|   |_||_______|
+#   _______  _______                                              
+#  |       ||       |                                             
+#  |_     _||   _   |                                             
+#    |   |  |  | |  |                                             
+#    |   |  |  |_|  |                                             
+#    |   |  |       |                                             
+#    |___|  |_______|                                             
+#   _______  ___   ______   ______   _______  _______  _______    
+#  |  _    ||   | |      | |      | |   _   ||       ||   _   |   
+#  | |_|   ||   | |  _    ||  _    ||  |_|  ||_     _||  |_|  |   
+#  |       ||   | | | |   || | |   ||       |  |   |  |       |   
+#  |  _   | |   | | |_|   || |_|   ||       |  |   |  |       |   
+#  | |_|   ||   | |       ||       ||   _   |  |   |  |   _   |   
+#  |_______||___| |______| |______| |__| |__|  |___|  |__| |__|                                          
 </pre>
 # Lets define BigData
 Wiki: [Big data is a term for data sets that are so large or complex that traditional data processing applications are inadequate](https://en.wikipedia.org/wiki/Big_data)
@@ -22,12 +40,19 @@ Experience: Piece of data which is too big to fit into any reasonable hardware w
 
 # Key components
 <pre>
-    __  __          __                
-   / / / /___ _____/ /___  ____  ____ 
-  / /_/ / __ `/ __  / __ \/ __ \/ __ \
- / __  / /_/ / /_/ / /_/ / /_/ / /_/ /
-/_/ /_/\__,_/\__,_/\____/\____/ .___/ 
-                             /_/      
+#                                          .-'''-.        .-'''-.                           
+#                         _______         '   _    \     '   _    \                         
+#     .                   \  ___ `'.    /   /` '.   \  /   /` '.   \_________   _...._      
+#   .'|                    ' |--.\  \  .   |     \  ' .   |     \  '\        |.'      '-.   
+#  <  |                    | |    \  ' |   '      |  '|   '      |  '\        .'```'.    '. 
+#   | |             __     | |     |  '\    \     / / \    \     / /  \      |       \     \
+#   | | .'''-.   .:--.'.   | |     |  | `.   ` ..' /   `.   ` ..' /    |     |        |    |
+#   | |/.'''. \ / |   \ |  | |     ' .'    '-...-'`       '-...-'`     |      \      /    . 
+#   |  /    | | `" __ | |  | |___.' /'                                 |     |\`'-.-'   .'  
+#   | |     | |  .'.''| | /_______.'/                                  |     | '-....-'`    
+#   | |     | | / /   | |_\_______|/                                  .'     '.             
+#   | '.    | '.\ \._,\ '/                                          '-----------'           
+#   '---'   '---'`--'  `"                                                                   
 </pre>
 ##The Hadoop Distributed File System (HDFS) is:##
 * a distributed file system designed to run on commodity hardware. 
@@ -36,11 +61,259 @@ Experience: Piece of data which is too big to fit into any reasonable hardware w
 * provides high throughput access to application data and is suitable for applications that have large data sets.
 
 ![HDFS Architecture](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/images/hdfsarchitecture.png)
+[Doc](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
 
+##Apache Hadoop YARN##
+The fundamental idea of YARN is to split up the functionalities of resource management and job scheduling/monitoring into separate daemons. The idea is to have a global ResourceManager (RM) and per-application ApplicationMaster (AM). An application is either a single job or a DAG of jobs.
+![YARN Architecture](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/yarn_architecture.gif)
+[Doc](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)
 
+<pre>
+#            _____                    _____                    _____                    _____          
+#           /\    \                  /\    \                  /\    \                  /\    \         
+#          /::\____\                /::\    \                /::\____\                /::\    \        
+#         /:::/    /                \:::\    \              /:::/    /               /::::\    \       
+#        /:::/    /                  \:::\    \            /:::/    /               /::::::\    \      
+#       /:::/    /                    \:::\    \          /:::/    /               /:::/\:::\    \     
+#      /:::/____/                      \:::\    \        /:::/____/               /:::/__\:::\    \    
+#     /::::\    \                      /::::\    \       |::|    |               /::::\   \:::\    \   
+#    /::::::\    \   _____    ____    /::::::\    \      |::|    |     _____    /::::::\   \:::\    \  
+#   /:::/\:::\    \ /\    \  /\   \  /:::/\:::\    \     |::|    |    /\    \  /:::/\:::\   \:::\    \ 
+#  /:::/  \:::\    /::\____\/::\   \/:::/  \:::\____\    |::|    |   /::\____\/:::/__\:::\   \:::\____\
+#  \::/    \:::\  /:::/    /\:::\  /:::/    \::/    /    |::|    |  /:::/    /\:::\   \:::\   \::/    /
+#   \/____/ \:::\/:::/    /  \:::\/:::/    / \/____/     |::|    | /:::/    /  \:::\   \:::\   \/____/ 
+#            \::::::/    /    \::::::/    /              |::|____|/:::/    /    \:::\   \:::\    \     
+#             \::::/    /      \::::/____/               |:::::::::::/    /      \:::\   \:::\____\    
+#             /:::/    /        \:::\    \               \::::::::::/____/        \:::\   \::/    /    
+#            /:::/    /          \:::\    \               ~~~~~~~~~~               \:::\   \/____/     
+#           /:::/    /            \:::\    \                                        \:::\    \         
+#          /:::/    /              \:::\____\                                        \:::\____\        
+#          \::/    /                \::/    /                                         \::/    /        
+#           \/____/                  \/____/                                           \/____/         
+#                                                                                                      
+</pre>
+The Apache Hive ™ data warehouse software facilitates querying and managing large datasets residing in distributed storage. Hive provides a mechanism to project structure onto this data and query the data using a SQL-like language called HiveQL. At the same time this language also allows traditional map/reduce programmers to plug in their custom mappers and reducers when it is inconvenient or inefficient to express this logic in HiveQL.
 
+![Hive Architecture](https://cwiki.apache.org/confluence/download/attachments/27362072/system_architecture.png?version=1&modificationDate=1414560669000&api=v2)
+[Doc](https://cwiki.apache.org/confluence/display/Hive/Design)
 
-* Hive
+* DDL Operations
+```sql
+  CREATE TABLE invites (foo INT, bar STRING) PARTITIONED BY (ds STRING)
+  ALTER TABLE pokes ADD COLUMNS (new_col INT)
+```
+* DML Operations
+```sql
+LOAD DATA LOCAL INPATH './examples/files/kv1.txt' OVERWRITE INTO TABLE pokes;
+-- Loads a file that contains two columns separated by ctrl-a into pokes table. 'LOCAL' signifies that the input file is on the local file system. If 'LOCAL' is omitted then it looks for the file in HDFS.
+-- The keyword 'OVERWRITE' signifies that existing data in the table is deleted. If the 'OVERWRITE' keyword is omitted, data files are appended to existing data sets.
+```
+* SQL Operations
+```sql
+SELECT a.foo FROM invites a WHERE a.ds='2008-08-15';
+```
+
+<pre>
+#                                                                                               
+#                                                                                               
+#     SSSSSSSSSSSSSSS                                                        kkkkkkkk           
+#   SS:::::::::::::::S                                                       k::::::k           
+#  S:::::SSSSSS::::::S                                                       k::::::k           
+#  S:::::S     SSSSSSS                                                       k::::::k           
+#  S:::::S           ppppp   ppppppppp     aaaaaaaaaaaaa  rrrrr   rrrrrrrrr   k:::::k    kkkkkkk
+#  S:::::S           p::::ppp:::::::::p    a::::::::::::a r::::rrr:::::::::r  k:::::k   k:::::k 
+#   S::::SSSS        p:::::::::::::::::p   aaaaaaaaa:::::ar:::::::::::::::::r k:::::k  k:::::k  
+#    SS::::::SSSSS   pp::::::ppppp::::::p           a::::arr::::::rrrrr::::::rk:::::k k:::::k   
+#      SSS::::::::SS  p:::::p     p:::::p    aaaaaaa:::::a r:::::r     r:::::rk::::::k:::::k    
+#         SSSSSS::::S p:::::p     p:::::p  aa::::::::::::a r:::::r     rrrrrrrk:::::::::::k     
+#              S:::::Sp:::::p     p:::::p a::::aaaa::::::a r:::::r            k:::::::::::k     
+#              S:::::Sp:::::p    p::::::pa::::a    a:::::a r:::::r            k::::::k:::::k    
+#  SSSSSSS     S:::::Sp:::::ppppp:::::::pa::::a    a:::::a r:::::r           k::::::k k:::::k   
+#  S::::::SSSSSS:::::Sp::::::::::::::::p a:::::aaaa::::::a r:::::r           k::::::k  k:::::k  
+#  S:::::::::::::::SS p::::::::::::::pp   a::::::::::aa:::ar:::::r           k::::::k   k:::::k 
+#   SSSSSSSSSSSSSSS   p::::::pppppppp      aaaaaaaaaa  aaaarrrrrrr           kkkkkkkk    kkkkkkk
+#                     p:::::p                                                                   
+#                     p:::::p                                                                   
+#                    p:::::::p                                                                  
+#                    p:::::::p                                                                  
+#                    p:::::::p                                                                  
+#                    ppppppppp                                                                  
+#                                                                                               
+</pre>
+Apache Spark™ is a fast and general engine for large-scale data processing.
+
+#Cluster Mode Overview#
+![Sparck clueste architecture](http://spark.apache.org/docs/latest/img/cluster-overview.png)
+* Cluster Manager Types
+* * Standalone – a simple cluster manager included with Spark that makes it easy to set up a cluster.
+* * Apache Mesos – a general cluster manager that can also run Hadoop MapReduce and service applications.
+* * Hadoop YARN – the resource manager in Hadoop 2.
+ 
+#Submitting Applications#
+```
+./bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master local[8] \
+  /path/to/examples.jar \
+```
+
+#Interactive Analysis with the Spark Shell#
+Spark’s shell provides a simple way to learn the API, as well as a powerful tool to analyze data interactively. It is available in either Scala (which runs on the Java VM and is thus a good way to use existing Java libraries) or Python. Start it by running the following in the Spark directory:
+
+```
+./bin/spark-shell
+```
+
+#Self-Contained Applications#
+* SBT
+```scala
+name := "Simple Project"
+
+version := "1.0"
+
+scalaVersion := "2.10.5"
+
+libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.0"
+```
+
+* Job
+```scala
+/* SimpleApp.scala */
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+
+object SimpleApp {
+  def main(args: Array[String]) {
+    val logFile = "YOUR_SPARK_HOME/README.md" // Should be some file on your system
+    val conf = new SparkConf().setAppName("Simple Application")
+    val sc = new SparkContext(conf)
+    val logData = sc.textFile(logFile, 2).cache()
+    val numAs = logData.filter(line => line.contains("a")).count()
+    val numBs = logData.filter(line => line.contains("b")).count()
+    println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
+  }
+}
+```
+
+#RDD#
+Spark revolves around the concept of a resilient distributed dataset (RDD), which is a fault-tolerant collection of elements that can be operated on in parallel. There are two ways to create RDDs: parallelizing an existing collection in your driver program, or referencing a dataset in an external storage system, such as a shared filesystem, HDFS, HBase, or any data source offering a Hadoop InputFormat.
+
+RDDs support two types of operations: *transformations*, which create a new dataset from an existing one, and *actions*, which return a value to the driver program after running a computation on the dataset
+
+By default, each transformed RDD may be recomputed each time you run an action on it. However, you may also persist an RDD in memory using the persist (or cache) method, in which case Spark will keep the elements around on the cluster for much faster access the next time you query it. 
+
+```scala
+val lines = sc.textFile("data.txt")
+val lineLengths = lines.map(s => s.length)
+val totalLength = lineLengths.reduce((a, b) => a + b)
+```
+
+#Understanding closures#
+```scala
+var counter = 0
+var rdd = sc.parallelize(data)
+
+// Wrong: Don't do this!!
+rdd.foreach(x => counter += x)
+
+println("Counter value: " + counter)
+```
+* Shared Variables
+
+* * Broadcast Variables: Broadcast variables allow the programmer to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks. They can be used, for example, to give every node a copy of a large input dataset in an efficient manner. Spark also attempts to distribute broadcast variables using efficient broadcast algorithms to reduce communication cost. After the broadcast variable is created, it should be used instead of the value v in any functions run on the cluster so that v is not shipped to the nodes more than once. In addition, the object v should not be modified after it is broadcast in order to ensure that all nodes get the same value of the broadcast variable (e.g. if the variable is shipped to a new node later).
+```scala
+scala> val broadcastVar = sc.broadcast(Array(1, 2, 3))
+broadcastVar: org.apache.spark.broadcast.Broadcast[Array[Int]] = Broadcast(0)
+
+scala> broadcastVar.value
+res0: Array[Int] = Array(1, 2, 3)
+```
+
+* * Accumulators: Accumulators are variables that are only “added” to through an associative operation and can therefore be efficiently supported in parallel. They can be used to implement counters (as in MapReduce) or sums. An accumulator is created from an initial value v by calling SparkContext.accumulator(v). Tasks running on the cluster can then add to it using the add method or the += operator (in Scala and Python). However, they cannot read its value. Only the driver program can read the accumulator’s value, using its value method.
+
+```scala
+scala> val accum = sc.accumulator(0, "My Accumulator")
+accum: spark.Accumulator[Int] = 0
+
+scala> sc.parallelize(Array(1, 2, 3, 4)).foreach(x => accum += x)
+...
+10/09/29 18:41:08 INFO SparkContext: Tasks finished in 0.317106 s
+
+scala> accum.value
+res2: Int = 10
+```
+
+#Spark SQL, DataFrames#
+Spark SQL is a Spark module for structured data processing. Unlike the basic Spark RDD API, the interfaces provided by Spark SQL provide Spark with more information about the structure of both the data and the computation being performed. Internally, Spark SQL uses this extra information to perform extra optimizations. 
+
+One use of Spark SQL is to execute SQL queries written using either a basic SQL syntax or HiveQL. Spark SQL can also be used to read data from an existing Hive installation.
+
+* DataFrames: A DataFrame is a distributed collection of data organized into named columns.
+
+Getting Started
+```scala
+val sc: SparkContext // An existing SparkContext.
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
+// this is used to implicitly convert an RDD to a DataFrame.
+import sqlContext.implicits._
+```
+
+DataFrame Operations
+```scala
+val sc: SparkContext // An existing SparkContext.
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
+// Create the DataFrame
+val df = sqlContext.read.json("examples/src/main/resources/people.json")
+
+// Show the content of the DataFrame
+df.show()
+// age  name
+// null Michael
+// 30   Andy
+// 19   Justin
+
+// Print the schema in a tree format
+df.printSchema()
+// root
+// |-- age: long (nullable = true)
+// |-- name: string (nullable = true)
+
+// Select only the "name" column
+df.select("name").show()
+// name
+// Michael
+// Andy
+// Justin
+
+// Select everybody, but increment the age by 1
+df.select(df("name"), df("age") + 1).show()
+// name    (age + 1)
+// Michael null
+// Andy    31
+// Justin  20
+
+// Select people older than 21
+df.filter(df("age") > 21).show()
+// age name
+// 30  Andy
+
+// Count people by age
+df.groupBy("age").count().show()
+// age  count
+// null 1
+// 19   1
+// 30   1
+```
+
+Running SQL Queries Programmatically
+```scala
+val sqlContext = ... // An existing SQLContext
+val df = sqlContext.sql("SELECT * FROM table")
+```
+
 * Spark
 
 # And many others
