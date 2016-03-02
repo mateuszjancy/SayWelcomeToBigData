@@ -104,21 +104,7 @@ G:::::G        G::::G  F:::::F                     T:::::T
 
 ---
 
-#Key components#
-<pre>
-#    _    _           _                   
-#   | |  | |         | |                  
-#   | |__| | __ _  __| | ___   ___  _ __  
-#   |  __  |/ _` |/ _` |/ _ \ / _ \| '_ \ 
-#   | |  | | (_| | (_| | (_) | (_) | |_) |
-#   |_|  |_|\__,_|\__,_|\___/ \___/| .__/ 
-#                                  | |    
-#                                  |_|    
-</pre>
-
----
-
-##The Hadoop Distributed File System (HDFS) is:##
+#The Hadoop Distributed File System (HDFS) is:#
 * **Distributed** file system designed to run on commodity hardware. 
 * Highly **fault-tolerant**
 * Designed to be deployed on **low-cost hardware**
@@ -127,23 +113,12 @@ G:::::G        G::::G  F:::::F                     T:::::T
 
 ---
 
-##Apache Hadoop YARN##
+#Apache Hadoop YARN#
 The fundamental idea of YARN is to **split up** the functionalities of **resource management** and **job scheduling/monitoring** into separate daemons.
 * [YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)
 
 ---
-
-<pre>
-#    _    _ _           
-#   | |  | (_)          
-#   | |__| |___   _____ 
-#   |  __  | \ \ / / _ \
-#   | |  | | |\ V /  __/
-#   |_|  |_|_| \_/ \___|
-#                       
-#                       
-</pre>
-
+#Apache Hive#
 The **Apache Hive** data warehouse software facilitates **querying** and **managing** large datasets residing in distributed storage. Hive provides a mechanism to **project structure** onto this data and **query the data using a SQL-like language** called HiveQL.
 * [Hive Architecture](https://cwiki.apache.org/confluence/display/Hive/Design)
 
@@ -341,60 +316,16 @@ df.groupBy("age").count().show()
 // 30   1
 ```
 
+---
+
 ###Running SQL Queries Programmatically###
 ```scala
 val sqlContext = ... // An existing SQLContext
 val df = sqlContext.sql("SELECT * FROM table")
 ```
 
-###DataFrame Operations###
-```scala
-val sc: SparkContext // An existing SparkContext.
-val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-import sqlContext.implicits._
+---
 
-// Create the DataFrame
-val df = sqlContext.read.json("examples/src/main/resources/people.json")
-
-// Show the content of the DataFrame
-df.show()
-// age  name
-// null Michael
-// 30   Andy
-// 19   Justin
-
-// Print the schema in a tree format
-df.printSchema()
-// root
-// |-- age: long (nullable = true)
-// |-- name: string (nullable = true)
-
-// Select only the "name" column
-df.select("name").show()
-// name
-// Michael
-// Andy
-// Justin
-
-// Select everybody, but increment the age by 1
-df.select(df("name"), df("age") + 1).show()
-// name    (age + 1)
-// Michael null
-// Andy    31
-// Justin  20
-
-// Select people older than 21
-df.filter(df("age") > 21).show()
-// age name
-// 30  Andy
-
-// Count people by age
-df.groupBy("age").count().show()
-// age  count
-// null 1
-// 19   1
-// 30   1
-```
 
 ###Running SQL Queries Programmatically###
 ```scala
@@ -416,6 +347,7 @@ println("Counter value: " + counter)
 ```
 
 ---
+
 #Shared Variables#
 ###Broadcast Variables###
 Allow the programmer **to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks.** They can be used, for example, to give every node a **copy of a large input dataset in an efficient manner**. 
@@ -429,6 +361,7 @@ res0: Array[Int] = Array(1, 2, 3)
 ```
 
 ---
+
 #Shared Variables#
 ###Accumulators## 
 Are variables that are **only “added”** to through an associative operation and can therefore be efficiently **supported in parallel**. They can be used **to implement counters** (as in MapReduce) or sums. 
