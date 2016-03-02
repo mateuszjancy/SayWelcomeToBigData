@@ -123,53 +123,29 @@ G:::::G        G::::G  F:::::F                     T:::::T
 * Highly **fault-tolerant**
 * Designed to be deployed on **low-cost hardware**
 * Provides high throughput **access** to application data and is suitable for **applications that have large data sets**.
-
-![HDFS Architecture](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/images/hdfsarchitecture.png)
-
-[Doc](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
+* [Hdfs design](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
 
 ---
 
 ##Apache Hadoop YARN##
 The fundamental idea of YARN is to **split up** the functionalities of **resource management** and **job scheduling/monitoring** into separate daemons.
-
-![YARN Architecture](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/yarn_architecture.gif)
-
-[Doc](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)
+* [YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)
 
 ---
 
 <pre>
-#            _____                    _____                    _____                    _____          
-#           /\    \                  /\    \                  /\    \                  /\    \         
-#          /::\____\                /::\    \                /::\____\                /::\    \        
-#         /:::/    /                \:::\    \              /:::/    /               /::::\    \       
-#        /:::/    /                  \:::\    \            /:::/    /               /::::::\    \      
-#       /:::/    /                    \:::\    \          /:::/    /               /:::/\:::\    \     
-#      /:::/____/                      \:::\    \        /:::/____/               /:::/__\:::\    \    
-#     /::::\    \                      /::::\    \       |::|    |               /::::\   \:::\    \   
-#    /::::::\    \   _____    ____    /::::::\    \      |::|    |     _____    /::::::\   \:::\    \  
-#   /:::/\:::\    \ /\    \  /\   \  /:::/\:::\    \     |::|    |    /\    \  /:::/\:::\   \:::\    \ 
-#  /:::/  \:::\    /::\____\/::\   \/:::/  \:::\____\    |::|    |   /::\____\/:::/__\:::\   \:::\____\
-#  \::/    \:::\  /:::/    /\:::\  /:::/    \::/    /    |::|    |  /:::/    /\:::\   \:::\   \::/    /
-#   \/____/ \:::\/:::/    /  \:::\/:::/    / \/____/     |::|    | /:::/    /  \:::\   \:::\   \/____/ 
-#            \::::::/    /    \::::::/    /              |::|____|/:::/    /    \:::\   \:::\    \     
-#             \::::/    /      \::::/____/               |:::::::::::/    /      \:::\   \:::\____\    
-#             /:::/    /        \:::\    \               \::::::::::/____/        \:::\   \::/    /    
-#            /:::/    /          \:::\    \               ~~~~~~~~~~               \:::\   \/____/     
-#           /:::/    /            \:::\    \                                        \:::\    \         
-#          /:::/    /              \:::\____\                                        \:::\____\        
-#          \::/    /                \::/    /                                         \::/    /        
-#           \/____/                  \/____/                                           \/____/         
-#                                                                                                      
+#    _    _ _           
+#   | |  | (_)          
+#   | |__| |___   _____ 
+#   |  __  | \ \ / / _ \
+#   | |  | | |\ V /  __/
+#   |_|  |_|_| \_/ \___|
+#                       
+#                       
 </pre>
+
 The **Apache Hive** data warehouse software facilitates **querying** and **managing** large datasets residing in distributed storage. Hive provides a mechanism to **project structure** onto this data and **query the data using a SQL-like language** called HiveQL.
-
----
-
-![Hive Architecture](https://cwiki.apache.org/confluence/download/attachments/27362072/system_architecture.png?version=1&modificationDate=1414560669000&api=v2)
-
-[Doc](https://cwiki.apache.org/confluence/display/Hive/Design)
+* [Hive Architecture](https://cwiki.apache.org/confluence/display/Hive/Design)
 
 ---
 
@@ -192,31 +168,14 @@ SELECT a.foo FROM invites a WHERE a.ds='2008-08-15';
 ---
 
 <pre>
-#                                                                                               
-#                                                                                               
-#     SSSSSSSSSSSSSSS                                                        kkkkkkkk           
-#   SS:::::::::::::::S                                                       k::::::k           
-#  S:::::SSSSSS::::::S                                                       k::::::k           
-#  S:::::S     SSSSSSS                                                       k::::::k           
-#  S:::::S           ppppp   ppppppppp     aaaaaaaaaaaaa  rrrrr   rrrrrrrrr   k:::::k    kkkkkkk
-#  S:::::S           p::::ppp:::::::::p    a::::::::::::a r::::rrr:::::::::r  k:::::k   k:::::k 
-#   S::::SSSS        p:::::::::::::::::p   aaaaaaaaa:::::ar:::::::::::::::::r k:::::k  k:::::k  
-#    SS::::::SSSSS   pp::::::ppppp::::::p           a::::arr::::::rrrrr::::::rk:::::k k:::::k   
-#      SSS::::::::SS  p:::::p     p:::::p    aaaaaaa:::::a r:::::r     r:::::rk::::::k:::::k    
-#         SSSSSS::::S p:::::p     p:::::p  aa::::::::::::a r:::::r     rrrrrrrk:::::::::::k     
-#              S:::::Sp:::::p     p:::::p a::::aaaa::::::a r:::::r            k:::::::::::k     
-#              S:::::Sp:::::p    p::::::pa::::a    a:::::a r:::::r            k::::::k:::::k    
-#  SSSSSSS     S:::::Sp:::::ppppp:::::::pa::::a    a:::::a r:::::r           k::::::k k:::::k   
-#  S::::::SSSSSS:::::Sp::::::::::::::::p a:::::aaaa::::::a r:::::r           k::::::k  k:::::k  
-#  S:::::::::::::::SS p::::::::::::::pp   a::::::::::aa:::ar:::::r           k::::::k   k:::::k 
-#   SSSSSSSSSSSSSSS   p::::::pppppppp      aaaaaaaaaa  aaaarrrrrrr           kkkkkkkk    kkkkkkk
-#                     p:::::p                                                                   
-#                     p:::::p                                                                   
-#                    p:::::::p                                                                  
-#                    p:::::::p                                                                  
-#                    p:::::::p                                                                  
-#                    ppppppppp                                                                  
-#                                                                                               
+#     _____                  _    
+#    / ____|                | |   
+#   | (___  _ __   __ _ _ __| | __
+#    \___ \| '_ \ / _` | '__| |/ /
+#    ____) | |_) | (_| | |  |   < 
+#   |_____/| .__/ \__,_|_|  |_|\_\
+#          | |                    
+#          |_|                    
 </pre>
 **Apache Spark is a fast and general engine for large-scale data processing.**
 
@@ -225,7 +184,9 @@ SELECT a.foo FROM invites a WHERE a.ds='2008-08-15';
 #Cluster Mode Overview#
 ![Sparck clueste architecture](http://spark.apache.org/docs/latest/img/cluster-overview.png)
 
-###Cluster Manager Types###
+---
+
+#Cluster Manager Types#
 * Standalone – a simple cluster manager included with Spark that makes it easy to set up a cluster.
 * Apache Mesos – a general cluster manager that can also run Hadoop MapReduce and service applications.
 * Hadoop YARN – the resource manager in Hadoop 2.
@@ -239,6 +200,8 @@ SELECT a.foo FROM invites a WHERE a.ds='2008-08-15';
   --master local[8] \
   /path/to/examples.jar \
 ```
+
+---
 
 #Interactive Analysis with the Spark Shell#
 Spark’s shell provides a **simple way to learn the API**, as well as a powerful tool to analyze data interactively.
@@ -260,6 +223,8 @@ scalaVersion := "2.10.5"
 
 libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.0"
 ```
+
+---
 
 ###Job###
 ```scala
@@ -314,6 +279,8 @@ val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 import sqlContext.implicits._
 ```
 
+---
+
 ###DataFrame Operations###
 ```scala
 val sc: SparkContext // An existing SparkContext.
@@ -321,40 +288,64 @@ val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 
 // Create the DataFrame
 val df = sqlContext.read.json("examples/src/main/resources/people.json")
+```
 
-// Show the content of the DataFrame
+---
+#Show the content of the DataFrame#
+```scala
 df.show()
 // age  name
 // null Michael
 // 30   Andy
 // 19   Justin
+```
 
-// Print the schema in a tree format
+---
+
+#Print the schema in a tree format#
+```scala
 df.printSchema()
 // root
 // |-- age: long (nullable = true)
 // |-- name: string (nullable = true)
+```
 
-// Select only the "name" column
+---
+
+#Select only the "name" column#
+```scala
 df.select("name").show()
 // name
 // Michael
 // Andy
 // Justin
+```
 
-// Select everybody, but increment the age by 1
+---
+
+#Select everybody, but increment the age by 1#
+```scala
 df.select(df("name"), df("age") + 1).show()
 // name    (age + 1)
 // Michael null
 // Andy    31
 // Justin  20
 
-// Select people older than 21
+```
+
+---
+
+#Select people older than 21#
+```scala
 df.filter(df("age") > 21).show()
 // age name
 // 30  Andy
+```
 
-// Count people by age
+---
+
+#Count people by age#
+```scala
 df.groupBy("age").count().show()
 // age  count
 // null 1
@@ -449,6 +440,8 @@ scala> broadcastVar.value
 res0: Array[Int] = Array(1, 2, 3)
 ```
 
+---
+#Shared Variables#
 ###Accumulators## 
 Are variables that are **only “added”** to through an associative operation and can therefore be efficiently **supported in parallel**. They can be used **to implement counters** (as in MapReduce) or sums. 
 
@@ -483,17 +476,14 @@ res2: Int = 10
 
 ---
 <pre>
-#                                                  
-#    ,ad8888ba,       ,adba,            db         
-#   d8"'    `"8b      8I  I8           d88b        
-#  d8'        `8b     "8bdP'          d8'`8b       
-#  88          88    ,d8"8b  88      d8'  `8b      
-#  88          88  .dP'   Yb,8I     d8YaaaaY8b     
-#  Y8,    "88,,8P  8P      888'    d8""""""""8b    
-#   Y8a.    Y88P   8b,   ,dP8b    d8'        `8b   
-#    `"Y8888Y"Y8a  `Y8888P"  Yb  d8'          `8b  
-#                                                  
-#                                                  
+#     ____                  
+#    / __ \  ___      /\    
+#   | |  | |( _ )    /  \   
+#   | |  | |/ _ \/\ / /\ \  
+#   | |__| | (_>  </ ____ \ 
+#    \___\_\\___/\/_/    \_\
+#                           
+#                                                              
 </pre>
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
